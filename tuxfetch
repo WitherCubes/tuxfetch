@@ -16,6 +16,12 @@ USERNAME=`whoami`  # Prints the username
 LUCKY=`shuf -i 0-100 -n 1`  # Prints a random number from 0 to 100
 ARCH=`uname -m`  # Prints the architecture
 SHL=`basename "${SHELL}"`  # Prints the shell used
+PACKAGES=`pacman -Qq | wc -l`
+
+#if [ $# -ne 0 -a "$1" = "--tags" ] ; then
+#    echo "Working"
+#    exit 0
+#fi
 
 echo -e "                                   "
 echo -e "${RED}  _______ ${RESET}     ${PURPLE}$USERNAME@$HOSTNAME "
@@ -23,7 +29,8 @@ echo -e "${RED} |${RESET}.-----.${RED}|${RESET}     --------- "
 echo -e "${RED} |${RESET}|     |${RED}|${RESET}     ${BLUE}OS: ${RESET}$OS $ARCH "
 echo -e "${RED} |${RESET}|_____/${RED}|${RESET}     ${BLUE}Uptime: ${RESET}$UPTIME "
 echo -e "${RED} |${RESET} .     ${RED}|${RESET}     ${BLUE}Kernel: ${RESET}$KERNEL "
-echo -e "${RED} |${RESET}-|-  oo${RED}|${RESET}     ${BLUE}RAM: ${RESET}$RAM_USED M / $RAM M "
+echo -e "${RED} |${RESET}-|-  oo${RED}|${RESET}     ${BLUE}Packages: ${RESET}$PACKAGES "
 echo -e "${RED} |${RESET}  _ _  ${RED}|${RESET}     ${BLUE}Shell: ${RESET}$SHL "
-echo -e "${RED} |_______/${RESET}     ${BLUE}Lucky Number: ${RESET}$LUCKY "
+echo -e "${RED} |_______/${RESET}     ${BLUE}RAM: ${RESET}$RAM_USED M / $RAM M "
+echo -e "               ${BLUE}Lucky Number: ${RESET}$LUCKY "
 echo -e "                                   "
